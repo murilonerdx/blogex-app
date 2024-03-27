@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'NomeDaMinhaFonte';
+  src: url('./assets/fonts/Monocraft.woff2') format('woff2'),
+  url('./assets/fonts/Monocraft.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Monocraft', sans-serif;
+}
