@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
-  font-family: 'NomeDaMinhaFonte';
+  font-family: 'Monocraft';
   src: url('./assets/fonts/Monocraft.woff2') format('woff2'),
   url('./assets/fonts/Monocraft.woff') format('woff');
   font-weight: normal;
@@ -12,4 +13,36 @@
 
 h5, .monocraft-font {
   font-family: 'Monocraft', sans-serif;
+}
+
+@layer base {
+  :root {
+    --color-text-base: 255, 255, 255; /* Texto branco */
+    --color-text-muted: 128, 90, 213; /* Roxo mais claro */
+    --color-text-inverted: 255, 255, 255; /* Texto branco (invertido não fará diferença aqui) */
+    --color-fill: 75, 0, 130; /* Roxo escuro */
+    --color-button-accent: 255, 255, 255; /* Botão texto/acento branco */
+    --color-button-accent-hover: 138, 43, 226; /* Roxo para hover de botão */
+    --color-button-muted: 99, 102, 241; /* Ajustado para um roxo mais vivo */
+  }
+
+  .theme-swiss {
+    --color-text-base: 255, 255, 255;
+    --color-text-muted: 254, 202, 202;
+    --color-text-inverted: 220, 38, 38;
+    --color-fill: 185, 28, 28;
+    --color-button-accent: 255, 255, 255;
+    --color-button-accent-hover: 254, 242, 242;
+    --color-button-muted: 239, 68, 68;
+  }
+
+  .theme-neon {
+    --color-text-base: 17, 24, 2;
+    --color-text-muted: 47, 67, 6;
+    --color-text-inverted: 235, 250, 204;
+    --color-fill: 179, 255, 23;
+    --color-button-accent: 36, 52, 3;
+    --color-button-accent-hover: 55, 79, 5;
+    --color-button-muted: 212, 255, 122;
+  }
 }
