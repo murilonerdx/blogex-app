@@ -30,8 +30,8 @@
     <section id="projetos" class="mt-10">
       <h5 class="text-3xl font-bold text-purple-700">Projetos</h5>
       <div id="lista-projetos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
-        <div *ngFor="let projeto of projetos.slice(0,10)" class="p-5 bg-white shadow rounded">
-          <a href="{{ projeto.html_url }}">
+        <div *ngFor="let projeto of projetos.slice(0,10)" class="p-5 bg-white shadow rounded border-2 hover:bg-purple-100">
+          <a href="{{ projeto.html_url }}"  target="_blank">
             <p
               class="text-purple-900 font-semibold overflow-hidden whitespace-nowrap text-xl">{{ projeto.nome }}</p>
             <p class="text-gray-700 mt-2  text-xl">{{ projeto.descricao }}</p>
