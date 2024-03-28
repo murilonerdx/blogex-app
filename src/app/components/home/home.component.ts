@@ -17,6 +17,8 @@ import {FormsModule} from "@angular/forms";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+
+  public atualizarInformacoes: boolean = false
   public termoBusca: string = ''; // Adicione esta linha
   public certificacoesFiltradas: Certificacao[] = [];
   public projetos: Projeto[] = [];
@@ -27,14 +29,14 @@ export class HomeComponent implements OnInit{
     const ctf = JSON.parse(localStorage.getItem('certificacoes') || '[]');
     const prj = JSON.parse(localStorage.getItem('projetos') || '[]');
 
-    if(ctf.length > 0){
+    if(ctf.length > 0 && !this.atualizarInformacoes){
       this.certificacoes = ctf
       this.certificacoesFiltradas = this.certificacoes.slice(0, 10);
     } else {
       this.listarArquivosCertificacoes();
     }
 
-    if(prj.length > 0){
+    if(prj.length > 0 && !this.atualizarInformacoes){
       this.projetos = prj;
     } else {
       this.buscarProjetosGitHub();
