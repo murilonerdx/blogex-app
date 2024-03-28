@@ -1,2 +1,2 @@
 # BlogexApp
-![Blogex](.github/Blogex - Blog sobre murilonerdx.gif)
+<img src=".github/Blogex - Blog sobre murilonerdx.gif">
