@@ -62,16 +62,31 @@
 
 
     </section>
+
+
+
     <div>
       <h5 class="text-4xl font-bold text-purple-800 mt-10">Minhas certificações</h5>
       <h5 class="text-1xl font-bold text-orange-600 mt-3">Clique para baixar</h5>
-      <div *ngIf="certificacoes.length > 0; else noData">
+
+      <div>
+        <input type="text" [(ngModel)]="termoBusca"
+               (ngModelChange)="atualizarFiltragem()" class="h-14 w-96 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
+               placeholder="Buscar certificação...">
+
+        <div class="absolute top-4 right-3">
+          <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
+        </div>
+      </div>
+      <div *ngIf="certificacoesFiltradas.length > 0 ; else noData">
         <ul>
-          <li *ngFor="let arquivo of certificacoes" class="mt-2 text-lg ">
+          <li *ngFor="let arquivo of this.certificacoesFiltradas" class="mt-2 text-lg ">
             <a class="ml-2 monocraft-font hover:underline" href="{{ arquivo.download_url }}"
                target="_blank">{{ arquivo.nome }}</a>
           </li>
         </ul>
+        <h5 class="mt-10 mb-5 text-md text-orange-700">+ {{certificacoes.length - 10}} certificações</h5>
+
       </div>
       <ng-template #noData>Nenhum arquivo encontrado.</ng-template>
     </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { catchError, tap } from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
@@ -7,40 +7,55 @@ import {CommonModule} from "@angular/common";
 import {Certificacao} from "../../model/Certificacao";
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, PdfViewerModule], // Importe HttpClientModule aqui
+  imports: [CommonModule, HttpClientModule, PdfViewerModule, FormsModule], // Importe HttpClientModule aqui
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+  public termoBusca: string = ''; // Adicione esta linha
+  public certificacoesFiltradas: Certificacao[] = [];
   public projetos: Projeto[] = [];
-  certificacoes: Certificacao[] = [];
-  safeUrl = "../../../assets/cv/CV - Atualizado.pdf";
+  public certificacoes: Certificacao[] = [];
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.listarArquivosCertificacoes();
+    console.log(this.certificacoes)
+
     this.buscarProjetosGitHub();
   }
 
-  listarArquivosCertificacoes(){
+  atualizarFiltragem(): void {
+    if (this.termoBusca) {
+      this.certificacoesFiltradas = this.certificacoes.filter(certificacao =>
+        certificacao.nome.toLowerCase().includes(this.termoBusca.toLowerCase()));
+    } else {
+      // Resetar para a lista completa se o termo de busca estiver vazio
+      let totallist = this.certificacoes.slice(0, 10)
+      this.certificacoesFiltradas = [... totallist];
+    }
+  }
+  listarArquivosCertificacoes() {
     const url = `https://api.github.com/repos/murilonerdx/my-goals/contents/certificacoes`;
 
     this.http.get<any[]>(url).pipe(
       tap(data => {
-        console.log(data)
-        this.certificacoes = data.filter(item => item.type == "file").map(item =>({
+        this.certificacoes = data.filter(item => item.type == "file").map(item => ({
           nome: item.name.replace(".pdf", ""),
           tamanho: item.size,
           download_url: item.download_url,
-        }))
+        }));
+        // Inicializa certificacoesFiltradas depois de carregar certificacoes
+        this.certificacoesFiltradas = [...this.certificacoes.slice(0,10)];
       }),
       catchError(error => {
         console.error(error);
-        return of([]); // Retorna um Observable vazio ou com valor padrão em caso de erro
+        return of([]);
       })
     ).subscribe();
   }
@@ -56,7 +71,7 @@ export class HomeComponent {
           tamanho: item.size,
           linguagem: item.language,
           html_url: item.html_url // Utiliza a imagem do proprietário como exemplo
-        })).slice(20);
+        })).slice(0, 10);
 
       }),
       catchError(error => {
