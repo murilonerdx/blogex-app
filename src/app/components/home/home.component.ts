@@ -8,11 +8,12 @@ import {Certificacao} from "../../model/Certificacao";
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
+import {SkillsComponent} from "../skills/skills.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, PdfViewerModule, FormsModule], // Importe HttpClientModule aqui
+  imports: [CommonModule, HttpClientModule, PdfViewerModule, FormsModule, SkillsComponent], // Importe HttpClientModule aqui
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

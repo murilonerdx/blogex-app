@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-100 text-gray-900">
+<div class="flex flex-row mt-16 min-h-screen bg-gray-100 text-gray-900">
   <div class="container mx-auto p-5">
     <header class="text-center py-5">
       <div class="mb-0">
@@ -6,35 +6,26 @@
           src="https://media.licdn.com/dms/image/D4D03AQG6y1tBIgdtIQ/profile-displayphoto-shrink_200_200/0/1678217227495?e=1717027200&v=beta&t=VwBAmLghoBELln5yCDaxgPJKeWiTrDwthMzuwSsrDnY"
           class="w-64 h-auto align-left rounded-full border-2 border-solid  border-black rounded-full"/>
       </div>
-
       <h5 class="text-4xl font-bold text-purple-800">Meu Portfólio</h5>
       <h5 class="text-md text-gray-600 mt-2 text-lg">Redes sociais</h5>
       <div class="flex-1 m-6">
         <div class="flex flex-wrap justify-center">
-          <h5 href="https://github.com/murilonerdx"
-              class="hover:bg-sky-700 bg-black rounded-lg text-white text-lg text-center self-center px-3 py-2 my-2 mx-2">
+          <a href="https://github.com/murilonerdx"
+              class="monocraft-font hover:bg-sky-700 bg-black rounded-lg text-white text-lg text-center self-center px-3 py-2 my-2 mx-2"  target="_blank">
             Github <i
-            class="fab fa-github ml-1"></i></h5>
-          <h5 href="https://www.facebook.com/profile.php?id=61553688407458"
-              class="hover:bg-sky-700 bg-blue-700 rounded-lg text-white text-lg text-center self-center px-3 py-2 my-2 mx-2">
+            class="fab fa-github ml-1"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61553688407458"
+              class="monocraft-font hover:bg-sky-700 bg-blue-700 rounded-lg text-white text-lg text-center self-center px-3 py-2 my-2 mx-2"  target="_blank">
             Facebook <i
-            class="fab fa-facebook ml-1"></i></h5>
-          <h5 href="https://www.linkedin.com/in/murilonerdx/"
-              class="hover:bg-sky-700 bg-cyan-200 text-black rounded-lg text-lg text-center self-center px-3 py-2 my-2 mx-2">
+            class="fab fa-facebook ml-1"></i></a>
+          <a href="https://www.linkedin.com/in/murilonerdx/"
+              class="monocraft-font hover:bg-sky-700 bg-cyan-200 text-black rounded-lg text-lg text-center self-center px-3 py-2 my-2 mx-2"  target="_blank">
             Linkedin <i
-            class="fa fa-linkedin ml-1"></i></h5>
+            class="fa fa-linkedin ml-1"></i></a>
         </div>
         <hr class="my-2">
       </div>
-      <div class="text-left">
-        <p class="text-gray-800 mt-10 text-xl">Sou desenvolvedor backend e tenho
-          conhecimento/habilidades/trabalho com: Java 8+ e Kotlin, Spring(MVC, Security, Cloud, Microserviços, RESTful,
-          Hibernate, JSF, JSP, Webflux/Reactive, Reflections, ActiveMQ/RabbitMQ/Kafka, TDD, DDD), gRPC, SQL/Oracle,
-          MongoDB, PostgreSQL, Integração Contínua e Implantação Contínua (CI/CD).
-
-          Sou tecnólogo em Análise e Desenvolvimento de sistemas na FIAP, estou sempre aprendendo uma nova tecnologia e
-          aplicações para resolução de problemas. Atualmente estou fazendo um MBA em Engenharia de Software</p>
-      </div>
+      <app-skills/>
     </header>
     <section id="projetos" class="mt-10">
       <h5 class="text-3xl font-bold text-purple-700">Projetos</h5>
@@ -64,14 +55,14 @@
     </section>
 
 
-
     <div>
       <h5 class="text-4xl font-bold text-purple-800 mt-10">Minhas certificações</h5>
       <h5 class="text-1xl font-bold text-orange-600 mt-3">Clique para baixar</h5>
 
       <div>
         <input type="text" [(ngModel)]="termoBusca"
-               (ngModelChange)="atualizarFiltragem()" class="monocraft-font h-14 w-96 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
+               (ngModelChange)="atualizarFiltragem()"
+               class="monocraft-font h-14 w-96 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
                placeholder="Buscar certificação...">
 
         <div class="absolute top-4 right-3">
@@ -85,8 +76,10 @@
                target="_blank">{{ arquivo.nome }}</a>
           </li>
         </ul>
-        <h5 *ngIf="!termoBusca"class="mt-10 mb-5 text-md text-orange-700">+ {{certificacoes.length - 10}} certificações</h5>
-        <h5 *ngIf="termoBusca"class="mt-10 mb-5 text-md text-orange-700">+ {{certificacoes.length - certificacoesFiltradas.length}} certificações</h5>
+        <h5 *ngIf="!termoBusca" class="mt-10 mb-5 text-md text-orange-700">+ {{certificacoes.length - 10}}
+          certificações</h5>
+        <h5 *ngIf="termoBusca" class="mt-10 mb-5 text-md text-orange-700">
+          + {{certificacoes.length - certificacoesFiltradas.length}} certificações</h5>
 
       </div>
       <ng-template #noData>Nenhum arquivo encontrado.</ng-template>
