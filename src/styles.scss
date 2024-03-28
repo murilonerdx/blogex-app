@@ -2,7 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.quill-editor-container {
+  max-width: 100%; /* Evita expansão horizontal */
+  height: auto; /* Altura automática para crescer com o conteúdo */
+  min-height: 200px; /* Altura mínima */
+}
 
+/* Específico para o quill-editor dentro do seu formulário */
+form div.mb-10 quill-editor {
+  width: 100%; /* Usa toda a largura disponível */
+  max-width: 100%;
+  height: auto;
+  min-height: 200px;
+}
 @font-face {
   font-family: 'Monocraft';
   src: url('./assets/fonts/Monocraft.woff2') format('woff2'),

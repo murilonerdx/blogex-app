@@ -1,1 +1,41 @@
-<quill-editor></quill-editor>
+<div class="max-w-screen-xl mx-auto p-4 mt-10">
+  <form action="/submit-post" method="POST">
+    <div class="mb-6">
+      <label for="title" class="monocraft-font block text-lg font-medium text-gray-800 mb-1">Titulo</label>
+      <input type="text" id="title" name="title"
+             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+             required>
+    </div>
+    <div class="mb-6">
+      <label for="title" class="monocraft-font block text-lg font-medium text-gray-800 mb-1">Tag do artigo</label>
+      <div class="container mx-auto p-6">
+        <div class="flex flex-wrap gap-2">
+          <a href="#" class="monocraft-font bg-blue-200 hover:bg-blue-300 py-1 px-2 rounded-lg text-md">Ocultismo</a>
+          <a href="#" class="monocraft-font bg-green-200 hover:bg-green-300 py-1 px-2 rounded-lg text-md">Programação</a>
+          <a href="#" class="monocraft-font bg-yellow-200 hover:bg-yellow-300 py-1 px-2 rounded-lg text-md">Filosofia</a>
+          <a href="#" class="monocraft-font bg-indigo-200 hover:bg-indigo-300 py-1 px-2 rounded-lg text-md">Vida pessoal</a>
+          <a href="#" class="monocraft-font bg-purple-200 hover:bg-purple-300 py-1 px-2 rounded-lg text-md">Experiencia</a>
+          <a href="#" class="monocraft-font bg-pink-200 hover:bg-pink-300 py-1 px-2 rounded-lg text-md">Estudos</a>
+          <a href="#" class="monocraft-font bg-orange-200 hover:bg-orange-700 py-1 px-2 rounded-lg text-md">Jogos</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-10 quill-editor-container">
+      <a class="monocraft-font block text-lg font-medium text-gray-800 mb-1">Conteúdo</a>
+      <quill-editor></quill-editor>
+    </div>
+
+    <div class="mb-6">
+      <label for="image" class="monocraft-font block text-lg font-medium text-gray-800 mb-1">Imagem do Artigo</label>
+      <input type="file" id="image" name="image" accept="image/*" class="w-full">
+    </div>
+
+    <div class="flex justify-end">
+      <button type="submit"
+              class="monocraft-font px-6 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 focus:outline-none">
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>
+
