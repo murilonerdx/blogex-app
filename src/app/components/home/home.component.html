@@ -85,7 +85,8 @@
                target="_blank">{{ arquivo.nome }}</a>
           </li>
         </ul>
-        <h5 class="mt-10 mb-5 text-md text-orange-700">+ {{certificacoes.length - 10}} certificações</h5>
+        <h5 *ngIf="!termoBusca"class="mt-10 mb-5 text-md text-orange-700">+ {{certificacoes.length - 10}} certificações</h5>
+        <h5 *ngIf="termoBusca"class="mt-10 mb-5 text-md text-orange-700">+ {{certificacoes.length - certificacoesFiltradas.length}} certificações</h5>
 
       </div>
       <ng-template #noData>Nenhum arquivo encontrado.</ng-template>

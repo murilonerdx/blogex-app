@@ -24,10 +24,21 @@ export class HomeComponent implements OnInit{
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.listarArquivosCertificacoes();
-    console.log(this.certificacoes)
+    const ctf = JSON.parse(localStorage.getItem('certificacoes') || '[]');
+    const prj = JSON.parse(localStorage.getItem('projetos') || '[]');
 
-    this.buscarProjetosGitHub();
+    if(ctf.length > 0){
+      this.certificacoes = ctf
+      this.certificacoesFiltradas = this.certificacoes.slice(0, 10);
+    } else {
+      this.listarArquivosCertificacoes();
+    }
+
+    if(prj.length > 0){
+      this.projetos = prj;
+    } else {
+      this.buscarProjetosGitHub();
+    }
   }
 
   atualizarFiltragem(): void {
@@ -50,8 +61,8 @@ export class HomeComponent implements OnInit{
           tamanho: item.size,
           download_url: item.download_url,
         }));
-        // Inicializa certificacoesFiltradas depois de carregar certificacoes
-        this.certificacoesFiltradas = [...this.certificacoes.slice(0,10)];
+        localStorage.setItem('certificacoes', JSON.stringify(this.certificacoes));
+        this.certificacoesFiltradas = [...this.certificacoes.slice(0, 10)];
       }),
       catchError(error => {
         console.error(error);
@@ -62,22 +73,21 @@ export class HomeComponent implements OnInit{
   buscarProjetosGitHub() {
     this.http.get<any[]>('https://api.github.com/users/murilonerdx/repos').pipe(
       tap(data => {
-
-
         this.projetos = data.map(item => ({
           nome: item.full_name,
           descricao: item.description,
-          tags: item.topics, // Assumindo que 'topics' está sendo usado como 'tags'
+          tags: item.topics,
           tamanho: item.size,
           linguagem: item.language,
-          html_url: item.html_url // Utiliza a imagem do proprietário como exemplo
+          html_url: item.html_url
         })).slice(0, 10);
-
+        // Atualizar localStorage aqui
+        localStorage.setItem('projetos', JSON.stringify(this.projetos));
       }),
       catchError(error => {
         console.error(error);
-        return of([]); // Retorna um Observable vazio ou com valor padrão em caso de erro
+        return of([]);
       })
-    ).subscribe(); // A chamada .subscribe() é mantida, mas sem lógica adicional
+    ).subscribe();
   }
 }
