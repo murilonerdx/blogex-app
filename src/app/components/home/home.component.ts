@@ -4,19 +4,21 @@ import { catchError, tap } from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {Projeto} from "../../model/Projeto";
 import {CommonModule} from "@angular/common";
-import {Certificacao} from "../../model/Certificacao"; // Exemplo de importação necessária
+import {Certificacao} from "../../model/Certificacao";
+import {PdfViewerModule} from "ng2-pdf-viewer";
+import {BrowserModule} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule], // Importe HttpClientModule aqui
+  imports: [CommonModule, HttpClientModule, PdfViewerModule], // Importe HttpClientModule aqui
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
   public projetos: Projeto[] = [];
   certificacoes: Certificacao[] = [];
-
+  safeUrl = "../../../assets/cv/CV - Atualizado.pdf";
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -54,7 +56,7 @@ export class HomeComponent {
           tamanho: item.size,
           linguagem: item.language,
           html_url: item.html_url // Utiliza a imagem do proprietário como exemplo
-        })).slice(0, 10);
+        })).slice(20);
 
       }),
       catchError(error => {
