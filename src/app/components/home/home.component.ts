@@ -9,11 +9,12 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {SkillsComponent} from "../skills/skills.component";
+import {WorkExperienceComponent} from "../work-experience/work-experience.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, PdfViewerModule, FormsModule, SkillsComponent], // Importe HttpClientModule aqui
+    imports: [CommonModule, HttpClientModule, PdfViewerModule, FormsModule, SkillsComponent, WorkExperienceComponent], // Importe HttpClientModule aqui
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
