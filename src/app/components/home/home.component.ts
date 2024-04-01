@@ -18,7 +18,13 @@ import {SkillsComponent} from "../skills/skills.component";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+  // A propriedade que controla a visibilidade do modal
+  isModalOpen = false;
 
+  // Método para alternar a visibilidade do modal
+  toggleModal() {
+    this.isModalOpen = !this.isModalOpen;
+  }
   public atualizarInformacoes: boolean = false
   public termoBusca: string = ''; // Adicione esta linha
   public certificacoesFiltradas: Certificacao[] = [];

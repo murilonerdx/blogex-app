@@ -11,8 +11,8 @@ import {QuillModule} from "ngx-quill";
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'posts', component: PostsComponent },
-  { path: 'create-post', component: CreatePostComponent },
+  // { path: 'posts', component: PostsComponent },
+  // { path: 'create-post', component: CreatePostComponent },
 ];
 
 @NgModule({
