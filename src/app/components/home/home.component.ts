@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit{
   public termoBusca: string = ''; // Adicione esta linha
   public certificacoesFiltradas: Certificacao[] = [];
   public projetos: Projeto[] = [];
+  public projetosBlogex: Projeto[] = [];
   public certificacoes: Certificacao[] = [];
   constructor(private http: HttpClient) {}
 
@@ -81,16 +82,20 @@ export class HomeComponent implements OnInit{
     ).subscribe();
   }
   buscarProjetosGitHub() {
-    this.http.get<any[]>('https://api.github.com/users/murilonerdx/repos').pipe(
+    this.http.get<any[]>('https://api.github.com/users/murilonerdx/repos?page=1&per_page=100').pipe(
       tap(data => {
-        this.projetos = data.map(item => ({
+        this.projetosBlogex = data.map(item => ({
           nome: item.full_name,
           descricao: item.description,
           tags: item.topics,
           tamanho: item.size,
           linguagem: item.language,
           html_url: item.html_url
-        })).slice(0, 10);
+        }));
+
+        this.projetos = this.projetosBlogex.filter(item =>
+          item.tags.some(tag => tag.toLowerCase().includes("blogex".toLowerCase()))
+        );
         // Atualizar localStorage aqui
         localStorage.setItem('projetos', JSON.stringify(this.projetos));
       }),
