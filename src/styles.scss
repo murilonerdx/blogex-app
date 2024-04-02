@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: var(--col-dark-purple);
+}
+.universe{
+  background-color: var(--col-dark-purple);
+}
 .quill-editor-container {
   max-width: 100%; /* Evita expansão horizontal */
   height: auto; /* Altura automática para crescer com o conteúdo */
@@ -23,12 +29,17 @@ form div.mb-10 quill-editor {
   font-style: normal;
 }
 
+
+
 h5, .monocraft-font {
   font-family: 'Monocraft', sans-serif;
 }
 
 @layer base {
   :root {
+    --col-dark: #222831;
+    --col-dark-two: #2B313C;
+    --col-dark-purple: #222831;
     --color-text-base: 255, 255, 255; /* Texto branco */
     --color-text-muted: 128, 90, 213; /* Roxo mais claro */
     --color-text-inverted: 255, 255, 255; /* Texto branco (invertido não fará diferença aqui) */

@@ -19,6 +19,22 @@ import {WorkExperienceComponent} from "../work-experience/work-experience.compon
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+  starsGroup1Styles: string = '';
+  starsGroup2Styles: string = '';
+  starsGroup3Styles: string = '';
+
+  randomStars(n: number): string {
+    let value = `${Math.floor(Math.random() * 2000 + 2)}px ${Math.floor(
+      Math.random() * 6000 + 2
+    )}px #FFF`;
+    for (let i = 0; i < n; i = i + 2) {
+      value += `, ${Math.floor(Math.random() * 2000 + 2)}px ${Math.floor(
+        Math.random() * 6000 + 2
+      )}px #FFF`;
+    }
+    return value;
+  }
+
   // A propriedade que controla a visibilidade do modal
   isModalOpen = false;
 
@@ -35,6 +51,10 @@ export class HomeComponent implements OnInit{
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.starsGroup1Styles = this.randomStars(1000);
+    this.starsGroup2Styles = this.randomStars(3000);
+    this.starsGroup3Styles = this.randomStars(200);
+
     const ctf = JSON.parse(localStorage.getItem('certificacoes') || '[]');
     const prj = JSON.parse(localStorage.getItem('projetos') || '[]');
 
