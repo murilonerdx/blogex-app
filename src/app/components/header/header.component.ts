@@ -13,4 +13,5 @@ import {DarkModeComponent} from "../dark-mode/dark-mode.component";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
 }

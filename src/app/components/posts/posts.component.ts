@@ -7,9 +7,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {FormsModule} from "@angular/forms";
 import {SkillsComponent} from "../skills/skills.component";
-import {Certificacao} from "../../model/Certificacao";
-import {Post} from "../../model/Post";
-import {Publicacao} from "../../model/Publicacao";
+import {Certificacao} from "../../types/Certificacao";
+import {Post} from "../../types/Post";
+import {Publicacao} from "../../types/Publicacao";
 
 @Component({
   selector: 'app-posts',

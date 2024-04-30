@@ -1,0 +1,40 @@
+/* PARALLAX */
+
+#stars-group1 {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  animation: starsAnimation 180s linear infinite;
+}
+
+#stars-group2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  animation: starsAnimation 100s linear infinite;
+}
+
+#stars-group3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  animation: starsAnimation 80s linear infinite;
+}
+
+@-webkit-keyframes starsAnimation {
+  from {
+    -webkit-transform: translateY(0px);
+  }
+  to {
+    -webkit-transform: translateY(-2000px);
+  }
+}
+
+@keyframes starsAnimation {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}

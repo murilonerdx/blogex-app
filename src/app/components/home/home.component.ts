@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { catchError, tap } from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
-import {Projeto} from "../../model/Projeto";
+import {Projeto} from "../../types/Projeto";
 import {CommonModule} from "@angular/common";
-import {Certificacao} from "../../model/Certificacao";
+import {Certificacao} from "../../types/Certificacao";
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
@@ -24,11 +24,11 @@ export class HomeComponent implements OnInit{
   starsGroup3Styles: string = '';
 
   randomStars(n: number): string {
-    let value = `${Math.floor(Math.random() * 2000 + 2)}px ${Math.floor(
+    let value = `${Math.floor(Math.random() * 5000 + 2)}px ${Math.floor(
       Math.random() * 6000 + 2
     )}px #FFF`;
     for (let i = 0; i < n; i = i + 2) {
-      value += `, ${Math.floor(Math.random() * 2000 + 2)}px ${Math.floor(
+      value += `, ${Math.floor(Math.random() * 5000 + 2)}px ${Math.floor(
         Math.random() * 6000 + 2
       )}px #FFF`;
     }

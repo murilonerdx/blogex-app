@@ -7,16 +7,22 @@ import {BrowserModule} from "@angular/platform-browser";
 import {PostsComponent} from "./components/posts/posts.component";
 import {CreatePostComponent} from "./components/create-post/create-post.component";
 import {QuillModule} from "ngx-quill";
+import {LoginComponent} from "./components/login/login.component";
+import {AppComponent} from "./app.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  // { path: 'posts', component: PostsComponent },
+  { path: 'login', component: LoginComponent },
   // { path: 'create-post', component: CreatePostComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), PdfViewerModule, QuillModule.forRoot()],
+  imports: [RouterModule.forRoot(routes), PdfViewerModule, QuillModule.forRoot(),BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule],
   exports: [RouterModule],
   declarations: [
   ],

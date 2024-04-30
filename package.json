@@ -23,6 +23,7 @@
     "file-saver": "^2.0.5",
     "ng2-pdf-viewer": "^10.0.0",
     "ngx-quill": "^25.1.2",
+    "ngx-toastr": "^18.0.0",
     "pdfjs-dist": "^4.0.379",
     "quill": "^2.0.0-beta.0",
     "rxjs": "~7.8.0",
