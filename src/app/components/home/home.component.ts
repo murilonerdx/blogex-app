@@ -26,11 +26,11 @@ export class HomeComponent implements OnInit{
   randomStars(n: number): string {
     let value = `${Math.floor(Math.random() * 5000 + 2)}px ${Math.floor(
       Math.random() * 6000 + 2
-    )}px #FFF`;
+    )}px #00d0ff`;
     for (let i = 0; i < n; i = i + 2) {
       value += `, ${Math.floor(Math.random() * 5000 + 2)}px ${Math.floor(
         Math.random() * 6000 + 2
-      )}px #FFF`;
+      )}px #00d0ff`;
     }
     return value;
   }

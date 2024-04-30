@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: var(--col-dark-purple);
-}
-.universe{
-  background-color: var(--col-dark-purple);
-}
 .quill-editor-container {
   max-width: 100%; /* Evita expansão horizontal */
   height: auto; /* Altura automática para crescer com o conteúdo */

@@ -1,23 +1,23 @@
 /* PARALLAX */
 
 #stars-group1 {
-  width: 1px;
-  height: 1px;
+  width: 2px;
+  height: 2px;
   background: transparent;
   animation: starsAnimation 180s linear infinite;
 }
 
 #stars-group2 {
 
-  width: 2px;
-  height: 2px;
+  width: 3px;
+  height: 3px;
   background: transparent;
   animation: starsAnimation 100s linear infinite;
 }
 
 #stars-group3 {
-  width: 3px;
-  height: 3px;
+  width: 4px;
+  height: 4px;
   background: transparent;
   animation: starsAnimation 80s linear infinite;
 }

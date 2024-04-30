@@ -1,10 +1,37 @@
 <div id="stars-group1" [style.boxShadow]="starsGroup1Styles"></div>
 <div id="stars-group2" [style.boxShadow]="starsGroup2Styles"></div>
 <div id="stars-group3" [style.boxShadow]="starsGroup3Styles"></div>
-<body class="flex universe flex-row justify-center items-center min-h-screen bg-gray-100 text-gray-900">
-<div class="container mx-auto p-2">
+<style>
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca o elemento por trás de todo o conteúdo */
+    background-image: url('assets/wallpaper.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    opacity: 0.9; /* Opacidade definida para 80% */
+  }
+
+  /* Aplicando o efeito de borramento na imagem de fundo */
+  .background:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(5px); /* Aplicando o efeito de borramento */
+  }
+</style>
+<div class="background" ></div>
+<body class="flex flex-row justify-center items-center min-h-screen text-gray-900">
+<div class="container mx-auto p-2 " >
   <header class="py-5">
-    <div class=" universe flex mt-2 bg-gray-100 text-gray-900">
+    <div class="  flex mt-2  text-gray-900">
       <img src="https://media.licdn.com/dms/image/D4D03AQG6y1tBIgdtIQ/profile-displayphoto-shrink_200_200/0/1678217227495?e=1717027200&v=beta&t=VwBAmLghoBELln5yCDaxgPJKeWiTrDwthMzuwSsrDnY"
            class="mr-5 m-auto rounded-full border-2 border-solid border-black rounded-full"/>
 
@@ -39,8 +66,8 @@
 
     <section id="projetos" class="mt-10 universe">
       <h5 class="m-auto text-3xl text-amber-500">Projetos</h5>
-      <div id="lista-projetos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4  universe mt-5 ">
-        <div *ngFor="let projeto of projetos.slice(0,10)" class=" universe p-5 bg-white shadow rounded border-2 hover:bg-gray-800">
+      <div id="lista-projetos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-5 ">
+        <div *ngFor="let projeto of projetos.slice(0,10)" class=" universe p-5  shadow rounded border-2 hover:bg-gray-800">
           <a href="{{ projeto.html_url }}"  target="_blank">
             <p
               class="text-amber-400 font-semibold overflow-hidden whitespace-nowrap text-xl ">{{ projeto.nome }}</p>
