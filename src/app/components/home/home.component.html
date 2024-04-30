@@ -28,8 +28,22 @@
   }
 </style>
 <div class="background" ></div>
+  <!-- Se desejar, você pode adicionar outros elementos sobrepostos aqui -->
+
 <body class="flex flex-row justify-center items-center min-h-screen text-gray-900">
-<div class="container mx-auto p-2 " >
+
+<div class="container mx-auto p-2 mt-12" >
+  <div class="flex items-center justify-center monocraft-font ">
+    <iframe
+      src="https://open.spotify.com/embed/track/1BncfTJAWxrsxyT9culBrj?si=3ee83bfcab574907"
+      width="300"
+      height="80"
+      frameborder="0"
+      allowtransparency="true"
+      allow="encrypted-media"
+      class="border-none"
+    ></iframe>
+  </div>
   <header class="py-5">
     <div class="  flex mt-2  text-gray-900">
       <img src="https://media.licdn.com/dms/image/D4D03AQG6y1tBIgdtIQ/profile-displayphoto-shrink_200_200/0/1678217227495?e=1717027200&v=beta&t=VwBAmLghoBELln5yCDaxgPJKeWiTrDwthMzuwSsrDnY"
@@ -44,13 +58,13 @@
           <div class="flex flex-wrap justify-start mt-2">
 
             <a href="https://github.com/murilonerdx"
-               class="hover:bg-sky-700 bg-black rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
-              Github <i class="fab fa-github ml-1"></i></a>
+               class="monocraft-font  hover:bg-sky-700 bg-black rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
+              Github <i class="monocraft-font  fab fa-github ml-1"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61553688407458"
-               class="hover:bg-sky-700 bg-blue-700 rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
-              Facebook <i class="fab fa-facebook ml-1"></i></a>
+               class="monocraft-font  hover:bg-sky-700 bg-blue-700 rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
+              Facebook <i class="monocraft-font  fab fa-facebook ml-1"></i></a>
             <a href="https://www.linkedin.com/in/murilonerdx/"
-               class="hover:bg-sky-700 bg-cyan-600 text-gray-300 rounded-lg text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
+               class="monocraft-font hover:bg-sky-700 bg-cyan-600 text-gray-300 rounded-lg text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
               Linkedin <i class="fa fa-linkedin ml-1"></i></a>
           </div>
 
@@ -65,25 +79,25 @@
     <app-work-experience />
 
     <section id="projetos" class="mt-10 universe">
-      <h5 class="m-auto text-3xl text-amber-500">Projetos</h5>
+      <h5 class="m-auto text-3xl text-cyan-100">Projetos</h5>
       <div id="lista-projetos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-5 ">
-        <div *ngFor="let projeto of projetos.slice(0,10)" class=" universe p-5  shadow rounded border-2 hover:bg-gray-800">
+        <div *ngFor="let projeto of projetos.slice(0,10)" class=" p-5  shadow rounded border-2 hover:bg-gray-800">
           <a href="{{ projeto.html_url }}"  target="_blank">
             <p
-              class="text-amber-400 font-semibold overflow-hidden whitespace-nowrap text-xl ">{{ projeto.nome }}</p>
-            <p class="text-gray-300 mt-2  text-xl">{{ projeto.descricao }}</p>
+              class="text-cyan-100 font-semibold overflow-hidden whitespace-nowrap text-xl ">{{ projeto.nome }}</p>
+            <p class="text-cyan-200 mt-2  text-xl">{{ projeto.descricao }}</p>
             <a
-              class="monocraft-font text-gray-300 mt-2 overflow-hidden  text-sm mt-5">
-              Tags:</a><a class="text-amber-500">{{ projeto.tags }}</a>
+              class="monocraft-font text-cyan-300 mt-2 overflow-hidden  text-sm mt-5">
+              Tags:</a><a class="text-cyan-100">{{ projeto.tags }}</a>
             <br>
-            <a class="text-gray-300 mt-2 text-sm monocraft-font">Linguagem:</a><a class="text-amber-500 mt-2 text-sm">{{projeto.linguagem}}</a>
+            <a class="text-cyan-300 mt-2 text-sm monocraft-font">Linguagem:</a><a class="text-cyan-100 mt-2 text-sm">{{projeto.linguagem}}</a>
             <!-- Ajustado conforme a interface Projeto -->
           </a>
         </div>
 
       </div>
 
-      <h5 class="text-lg text-amber-600 mt-10">+ Projetos acesse meu <a href="https://github.com/murilonerdx"
+      <h5 class="text-lg text-cyan-100 mt-10">+ Projetos acesse meu <a href="https://github.com/murilonerdx"
                                                                                    class="bg-black rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2">Github
         <i class="fab fa-github"></i></a></h5>
 
@@ -93,12 +107,12 @@
 
     <div>
       <h5 class="text-4xl text-gray-300 mt-10">Minhas certificações</h5>
-      <h5 class="text-1xl font-semi text-amber-500 mt-3">Clique para baixar</h5>
+      <h5 class="text-1xl font-semi text-cyan-200 mt-3">Clique para baixar</h5>
 
       <div>
         <input type="text" [(ngModel)]="termoBusca"
                (ngModelChange)="atualizarFiltragem()"
-               class="universe monocraft-font border-2 text-white border-solid h-14 w-96 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
+               class="universe monocraft-font border-2 text-cyan-900 border-solid h-14 w-96 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
                placeholder="Buscar certificação...">
 
         <div class="absolute top-4 right-3">
@@ -108,19 +122,19 @@
       <div *ngIf="certificacoesFiltradas.length > 0 ; else noData">
         <ul>
           <li *ngFor="let arquivo of this.certificacoesFiltradas" class="mt-2 text-lg ">
-            <a class="ml-2 monocraft-font text-gray-300 hover:underline" href="{{ arquivo.download_url }}"
+            <a class="ml-2 monocraft-font text-cyan-300 hover:underline" href="{{ arquivo.download_url }}"
                target="_blank">{{ arquivo.nome }}</a>
           </li>
         </ul>
-        <h5 *ngIf="!termoBusca" class="mt-10 mb-5 text-md text-amber-500">+ {{certificacoes.length - 10}}
+        <h5 *ngIf="!termoBusca" class="mt-10 mb-5 text-md text-cyan-100">+ {{certificacoes.length - 10}}
           certificações</h5>
-        <h5 *ngIf="termoBusca" class="mt-10 mb-5 text-md text-amber-500">
+        <h5 *ngIf="termoBusca" class="mt-10 mb-5 text-md text-cyan-100">
           + {{certificacoes.length - certificacoesFiltradas.length}} certificações</h5>
 
-        <a class="monocraft-font mt-10 mb-5 hover:underline text-md text-amber-500" target="_blank" href="https://github.com/murilonerdx/my-goals/tree/main/certificacoes">
+        <a class="monocraft-font mt-10 mb-5 hover:underline text-md text-cyan-100" target="_blank" href="https://github.com/murilonerdx/my-goals/tree/main/certificacoes">
           clique aqui para ver todas</a>
       </div>
-      <ng-template  #noData> <span class="monocraft-font text-purple-50">Nenhum arquivo encontrado...</span></ng-template>
+      <ng-template  #noData> <span class="monocraft-font text-cyan-100">Nenhum arquivo encontrado...</span></ng-template>
     </div>
 
   </div>
