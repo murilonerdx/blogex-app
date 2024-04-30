@@ -7,7 +7,6 @@ import {BrowserModule} from "@angular/platform-browser";
 import {PostsComponent} from "./components/posts/posts.component";
 import {CreatePostComponent} from "./components/create-post/create-post.component";
 import {QuillModule} from "ngx-quill";
-import {LoginComponent} from "./components/login/login.component";
 import {AppComponent} from "./app.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
