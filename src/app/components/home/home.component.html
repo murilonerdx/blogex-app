@@ -28,120 +28,167 @@
   }
 </style>
 <div class="background" ></div>
+
   <!-- Se desejar, você pode adicionar outros elementos sobrepostos aqui -->
 
-<body class="flex flex-row justify-center items-center min-h-screen text-gray-900">
+<div class="bg-gray-100">
+  <div class="container mx-auto py-8">
+    <div class="grid grid-cols-4 sm:grid-cols-12 gap-6 px-4">
+      <div class="col-span-4 sm:col-span-3">
+        <div class="bg-white shadow rounded-lg p-6">
+          <div class="flex flex-col items-center">
+            <img src="https://media.licdn.com/dms/image/D4D03AQG6y1tBIgdtIQ/profile-displayphoto-shrink_800_800/0/1678217227495?e=1723075200&v=beta&t=Rnc0ibpz4PJV9RHc_Bp5beTqP3TID4UObgLPBoqGapk" class="w-32 h-32 bg-gray-300 rounded-full mb-4 shrink-0" alt="asd">
 
-<div class="container mx-auto p-2 mt-12" >
-<!--  <div class="flex items-center justify-center monocraft-font ">-->
-<!--    <iframe-->
-<!--      src="https://open.spotify.com/embed/track/1BncfTJAWxrsxyT9culBrj?si=3ee83bfcab574907"-->
-<!--      width="300"-->
-<!--      height="80"-->
-<!--      frameborder="0"-->
-<!--      allowtransparency="true"-->
-<!--      allow="encrypted-media"-->
-<!--      class="border-none"-->
-<!--    ></iframe>-->
-<!--    <span class="text-white ml-5"> ← Com musica fica muito melhor</span>-->
 
-<!--  </div>-->
-
-  <header class="py-5">
-
-    <div class=" flex mt-2  text-gray-900">
-      <img src="https://media.licdn.com/dms/image/D4D03AQG6y1tBIgdtIQ/profile-displayphoto-shrink_200_200/0/1678217227495?e=1717027200&v=beta&t=VwBAmLghoBELln5yCDaxgPJKeWiTrDwthMzuwSsrDnY"
-           class="mr-5 m-auto rounded-full border-2 border-solid border-black rounded-full"/>
-
-      <div class="flex-1 text-left mt-14">
-        <div class="ml-4">
-          <h5 class="text-4xl font-bold text-gray-300">Murilo P.S</h5>
-          <h5 class="text-md text-gray-300 text-lg">Redes sociais</h5>
+            <h1 class="text-xl font-bold">Murilo P.S</h1>
+            <p class="text-gray-700">Desenvolvedor Backend</p>
+            <p class="text-gray-700 mt-5">Analise e Desenvolvimento de Sistemas </p>
+            <p class="text-gray-700">MBA Engenharia de Software</p>
+            <div class="mt-6 flex flex-wrap gap-4 justify-center">
+              <a href="../../../assets/cv/CV - Atualizado.pdf" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded" download="Murilo P.S.pdf">CV Atualizado</a>
+              <a href="#" class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded">Meus projetos</a>
+            </div>
+          </div>
+          <hr class="my-6 border-t border-gray-300">
+          <div class="flex flex-col">
+            <span class="text-gray-700 uppercase font-bold tracking-wider mb-2">Skills</span>
+            <ul>
+              <li class="mb-2">Java 8+</li>
+              <li class="mb-2">Docker</li>
+              <li class="mb-2">Kotlin</li>
+              <li class="mb-2">Spring WebFlux</li>
+              <li class="mb-2">SQL e NOSQL</li>
+              <li class="mb-2">gRPC</li>
+              <li class="mb-2">Kafka e RabbitMQ</li>
+              <li class="mb-2">GitLab CI/CD</li>
+            </ul>
+          </div>
         </div>
         <div>
-          <div class="flex flex-wrap justify-start mt-2">
+          <h5 class="text-4xl text-black-300 mt-10">Minhas certificações</h5>
+          <h5 class="text-1xl font-semi text-gray-500 mt-3">Clique para baixar</h5>
 
-            <a href="https://github.com/murilonerdx"
-               class="monocraft-font  hover:bg-sky-700 bg-black rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
-              Github <i class="monocraft-font  fab fa-github ml-1"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61553688407458"
-               class="monocraft-font  hover:bg-sky-700 bg-blue-700 rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
-              Facebook <i class="monocraft-font  fab fa-facebook ml-1"></i></a>
-            <a href="https://www.linkedin.com/in/murilonerdx/"
-               class="monocraft-font hover:bg-sky-700 bg-cyan-600 text-gray-300 rounded-lg text-lg text-center self-center px-3 py-2 my-2 mx-2" target="_blank">
-              Linkedin <i class="fa fa-linkedin ml-1"></i></a>
+          <div>
+            <input type="text" [(ngModel)]="termoBusca"
+                   (ngModelChange)="atualizarFiltragem()"
+                   class="universe monocraft-font border-2 text-gray-900 border-solid h-14 w-10/12 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
+                   placeholder="Buscar certificação...">
+
+            <div class="absolute top-4 right-3">
+              <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
+            </div>
+          </div>
+          <div *ngIf="certificacoesFiltradas.length > 0 ; else noData">
+            <ul>
+              <li *ngFor="let arquivo of this.certificacoesFiltradas" class="mt-2 text-lg ">
+                <a class="ml-2 monocraft-font text-black-300 hover:underline" href="{{ arquivo.download_url }}"
+                   target="_blank">{{ arquivo.nome }}</a>
+              </li>
+            </ul>
+            <h5 *ngIf="!termoBusca" class="mt-10 mb-5 text-md text-gray-500">+ {{certificacoes.length - 10}}
+              certificações</h5>
+            <h5 *ngIf="termoBusca" class="mt-10 mb-5 text-md text-gray-500">
+              + {{certificacoes.length - certificacoesFiltradas.length}} certificações</h5>
+
+            <a class="monocraft-font mt-10 mb-5 hover:underline text-md text-gray-500" target="_blank" href="https://github.com/murilonerdx/my-goals/tree/main/certificacoes">
+              clique aqui para ver todas</a>
+          </div>
+          <ng-template  #noData> <span class="monocraft-font text-gray-500">Nenhum arquivo encontrado...</span></ng-template>
+        </div>
+      </div>
+      <div class="col-span-4 sm:col-span-9">
+        <div class="bg-white shadow rounded-lg p-6">
+          <h2 class="text-xl font-bold mb-4">Sobre mim</h2>
+          <p class="text-gray-700">Sou desenvolvedor backend com conhecimentos em: Java 8+ e Kotlin, Spring(MVC, Security, Cloud, Microserviços, RESTful, Hibernate, JSF, JSP, Webflux/Reactive, Reflections, ActiveMQ/RabbitMQ/Kafka, TDD, DDD), gRPC, SQL/Oracle, MongoDB, PostgreSQL, Integração Contínua e Implantação Contínua (CI/CD).
+            <br><br>
+            Sou formado em Análise e Desenvolvimento de sistemas na FIAP com um MBA de Engenharia de Software em progresso, estou em constante aprendizado de novas tecnologias para resoluções do mais diversos problemas na área de TI.
+          </p>
+
+          <h3 class="font-semibold text-center mt-3 -mb-2">
+            Me encontre em
+          </h3>
+          <div class="flex justify-center items-center gap-6 my-6">
+            <a class="text-gray-700 hover:text-orange-600" aria-label="Visit TrendyMinds LinkedIn" href="https://www.linkedin.com/in/murilonerdx/"
+               target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-6">
+                <path fill="currentColor"
+                      d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+                </path>
+              </svg>
+            </a>
+            <a class="text-gray-700 hover:text-orange-600" aria-label="Visit TrendyMinds Facebook" href="https://www.facebook.com/profile.php?id=61553688407458"
+               target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="h-6">
+                <path fill="currentColor"
+                      d="m279.14 288 14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                </path>
+              </svg>
+            </a>
+            <a class="text-gray-700 hover:text-orange-600" aria-label="Visit TrendyMinds Instagram" href="https://www.instagram.com/only_murilo/"
+               target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="h-6">
+                <path fill="currentColor"
+                      d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                </path>
+              </svg>
+            </a>
           </div>
 
+
+          <h2 class="text-xl font-bold mt-6 mb-4">Experiência</h2>
+          <div class="mb-6">
+            <div class="flex justify-between flex-wrap gap-2 w-full">
+              <span class="text-gray-700 font-bold">Desenvolvedor Backend Java</span>
+              <p>
+                <span class="text-gray-700 mr-2">NTConsult (Sicredi)</span>
+                <span class="text-gray-700">1 ano e 12 meses</span>
+              </p>
+            </div>
+            <p class="mt-2">
+              Atualmente trabalho com Microserviços com foco em desenvolvimento de alta performance, utilizamos Java/Kotlin além de um serviço que integra com Data Science.
+              <br><br>
+              Usamos Gitlab para CI e MongoDB como banco principal para uso, utilizamos também gRPC em nossos serviços além da Stack Spring reactivo. Jenkins para implementações e rotinas, ECS e EKS integrados também, usamos sistema de mensageria do Kafka, além de serviços altamente escaláveis que ajudam a monitorar desempenho, Graylog e Grafana.
+              <br><br>
+
+              Atualmente usamos Spring Cloud com Feign para maioria dos serviços. Temos uma media de 2KK a 7KK de processamentos por dia, trabalho desenvolvendo aplicações ágeis, performáticas.
+
+
+
+            </p>
+          </div>
+          <div class="mb-6">
+            <div class="flex justify-between flex-wrap gap-2 w-full">
+              <span class="text-gray-700 font-bold">Desenvolvedor FullStack Java</span>
+              <p>
+                <span class="text-gray-700 mr-2">WayonIT Solutions</span>
+                <span class="text-gray-700">5 meses</span>
+              </p>
+            </div>
+            <p class="mt-2">
+              Trabalhei para uma das maiores rede de seguros do Brasil como desenvolvedor, utilizando SonarQube, Grafana, Jenkins e manutenção a projetos envolvendo microsserviços e mensageria, padrões SOLID, implementações e integrações de serviços e a sua comunicação entre telas JSP e JSF, desenvolvimento de ferramentas internas
+            </p>
+          </div>
+          <div class="mb-6">
+            <div class="flex justify-between flex-wrap gap-2 w-full">
+              <span class="text-gray-700 font-bold">Desenvolvedor Web/Java</span>
+              <p>
+                <span class="text-gray-700 mr-2">Viceri</span>
+                <span class="text-gray-700">8 meses</span>
+              </p>
+            </div>
+            <p class="mt-2">
+              Trabalhei com diversas funções no workflow de desenvolvimento sendo algumas delas: testes unitários e implementações utilizando Spring Boot(RESTful, Java 8+, Angular e JSF) com banco de dados SQL Server.
+
+              <br><br>
+              A IDE utilizada em grande parte do tempo foi Eclipse. Colaborei com o desenvolvimento de algoritmos, testes e correções de BUGs que eram reportados pelo SonaQube, também auxiliei na criação de APIs e no desenvolvimento e manutenção de aplicações utilizando ASP 3.0 efetuando também os devidos ajustes nas documentações.
+            </p>
+          </div>
         </div>
 
       </div>
-
     </div>
-
-      <app-skills/>
-    </header>
-    <app-work-experience />
-
-    <section id="projetos" class="mt-10 universe">
-      <h5 class="m-auto text-3xl text-cyan-100">Projetos</h5>
-      <div id="lista-projetos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-5 ">
-        <div *ngFor="let projeto of projetos.slice(0,10)" class=" p-5  shadow rounded border-2 hover:bg-cyan-800 bg-cyan-900 bg-opacity-40">
-          <a href="{{ projeto.html_url }}"  target="_blank">
-            <p
-              class="text-cyan-100 font-semibold overflow-hidden whitespace-nowrap text-xl ">{{ projeto.nome }}</p>
-            <p class="text-cyan-200 mt-2  text-xl">{{ projeto.descricao }}</p>
-            <a
-              class="monocraft-font text-cyan-300 mt-2 overflow-hidden  text-sm mt-5">
-              Tags:</a><a class="text-cyan-100">{{ projeto.tags }}</a>
-            <br>
-            <a class="text-cyan-300 mt-2 text-sm monocraft-font">Linguagem:</a><a class="text-cyan-100 mt-2 text-sm">{{projeto.linguagem}}</a>
-            <!-- Ajustado conforme a interface Projeto -->
-          </a>
-        </div>
-
-      </div>
-
-      <h5 class="text-lg text-cyan-100 mt-10">+ Projetos acesse meu <a href="https://github.com/murilonerdx"
-                                                                                   class="bg-black rounded-lg text-gray-300 text-lg text-center self-center px-3 py-2 my-2 mx-2">Github
-        <i class="fab fa-github"></i></a></h5>
-
-
-    </section>
-
-
-    <div>
-      <h5 class="text-4xl text-gray-300 mt-10">Minhas certificações</h5>
-      <h5 class="text-1xl font-semi text-cyan-200 mt-3">Clique para baixar</h5>
-
-      <div>
-        <input type="text" [(ngModel)]="termoBusca"
-               (ngModelChange)="atualizarFiltragem()"
-               class="universe monocraft-font border-2 text-cyan-900 border-solid h-14 w-96 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
-               placeholder="Buscar certificação...">
-
-        <div class="absolute top-4 right-3">
-          <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
-        </div>
-      </div>
-      <div *ngIf="certificacoesFiltradas.length > 0 ; else noData">
-        <ul>
-          <li *ngFor="let arquivo of this.certificacoesFiltradas" class="mt-2 text-lg ">
-            <a class="ml-2 monocraft-font text-cyan-300 hover:underline" href="{{ arquivo.download_url }}"
-               target="_blank">{{ arquivo.nome }}</a>
-          </li>
-        </ul>
-        <h5 *ngIf="!termoBusca" class="mt-10 mb-5 text-md text-cyan-100">+ {{certificacoes.length - 10}}
-          certificações</h5>
-        <h5 *ngIf="termoBusca" class="mt-10 mb-5 text-md text-cyan-100">
-          + {{certificacoes.length - certificacoesFiltradas.length}} certificações</h5>
-
-        <a class="monocraft-font mt-10 mb-5 hover:underline text-md text-cyan-100" target="_blank" href="https://github.com/murilonerdx/my-goals/tree/main/certificacoes">
-          clique aqui para ver todas</a>
-      </div>
-      <ng-template  #noData> <span class="monocraft-font text-cyan-100">Nenhum arquivo encontrado...</span></ng-template>
-    </div>
-
   </div>
+</div>
 
 
-</body>
+

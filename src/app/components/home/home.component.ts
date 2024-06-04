@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit{
 
     if(ctf.length > 0 && !this.atualizarInformacoes){
       this.certificacoes = ctf
-      this.certificacoesFiltradas = this.certificacoes.slice(0, 10);
+      this.certificacoesFiltradas = this.certificacoes.slice(0, 3);
     } else {
       this.listarArquivosCertificacoes();
     }
@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit{
         certificacao.nome.toLowerCase().includes(this.termoBusca.toLowerCase()));
     } else {
       // Resetar para a lista completa se o termo de busca estiver vazio
-      let totallist = this.certificacoes.slice(0, 10)
+      let totallist = this.certificacoes.slice(0, 3)
       this.certificacoesFiltradas = [... totallist];
     }
   }
