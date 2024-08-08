@@ -51,9 +51,9 @@ export class HomeComponent implements OnInit{
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.starsGroup1Styles = this.randomStars(20000);
-    this.starsGroup2Styles = this.randomStars(2000);
-    this.starsGroup3Styles = this.randomStars(900);
+    this.starsGroup1Styles = this.randomStars(9000);
+    this.starsGroup2Styles = this.randomStars(900);
+    this.starsGroup3Styles = this.randomStars(100);
 
     const ctf = JSON.parse(localStorage.getItem('certificacoes') || '[]');
     const prj = JSON.parse(localStorage.getItem('projetos') || '[]');

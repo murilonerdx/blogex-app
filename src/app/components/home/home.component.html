@@ -41,7 +41,7 @@
           <div>
             <input type="text" [(ngModel)]="termoBusca"
                    (ngModelChange)="atualizarFiltragem()"
-                   class="universe monocraft-font border-2 text-gray-900 border-solid h-14 w-10/12 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
+                   class=" monocraft-font border-2 text-gray-900 border-solid h-14 w-10/12 pr-8 pl-5 mt-5 mb-5 rounded z-0 focus:shadow focus:outline-none"
                    placeholder="Buscar certificação...">
 
             <div class="absolute top-4 right-3">
@@ -51,7 +51,7 @@
           <div *ngIf="certificacoesFiltradas.length > 0 ; else noData">
             <ul>
               <li *ngFor="let arquivo of this.certificacoesFiltradas" class="mt-2 text-lg ">
-                <a class="ml-2 monocraft-font text-black-300 hover:underline" href="{{ arquivo.download_url }}"
+                <a class="monocraft-font text-black-300 hover:underline" href="{{ arquivo.download_url }}"
                    target="_blank">{{ arquivo.nome }}</a>
               </li>
             </ul>
