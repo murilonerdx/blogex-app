@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit{
           download_url: item.download_url,
         }));
         localStorage.setItem('certificacoes', JSON.stringify(this.certificacoes));
-        this.certificacoesFiltradas = [...this.certificacoes.slice(0, 10)];
+        this.certificacoesFiltradas = [...this.certificacoes.slice(0, 3)];
       }),
       catchError(error => {
         console.error(error);

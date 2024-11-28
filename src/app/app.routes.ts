@@ -4,16 +4,17 @@ import {HomeComponent} from "./components/home/home.component";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {BrowserModule} from "@angular/platform-browser";
-import {PostsComponent} from "./components/posts/posts.component";
-import {CreatePostComponent} from "./components/create-post/create-post.component";
 import {QuillModule} from "ngx-quill";
-import {AppComponent} from "./app.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {LoginComponent} from "./login/login.component";
+import {AuthGuard} from "../auth.guard";
+import {PostsComponent} from "./components/posts/posts.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  // { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  {path: 'posts', component: PostsComponent, canActivate: [AuthGuard]},
   // { path: 'create-post', component: CreatePostComponent },
 ];
 

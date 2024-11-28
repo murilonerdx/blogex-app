@@ -3,7 +3,7 @@
 #stars-group1 {
   filter: blur(2px); /* Aplicando o efeito de borramento */
   width: 2px;
-  height: 2px;
+  height: 1px;
   background: transparent;
   animation: starsAnimation 180s linear infinite;
 
@@ -12,7 +12,7 @@
 #stars-group2 {
   filter: blur(1px); /* Aplicando o efeito de borramento */
   width: 3px;
-  height: 3px;
+  height: 1px;
   background: transparent;
   animation: starsAnimation 100s linear infinite;
 }
@@ -20,7 +20,7 @@
 #stars-group3 {
   filter: blur(1px); /* Aplicando o efeito de borramento */
   width: 4px;
-  height: 4px;
+  height: 1px;
   background: transparent;
   animation: starsAnimation 80s linear infinite;
 }
